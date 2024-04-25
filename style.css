@@ -1,18 +1,36 @@
-* {
+/* * {
     border: 1px solid red;
-}
+} */
 
 body {
-    background-image: url(images/starraill_login.png);
+    /* background-image: url(images/starraill_login.png); */
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
 }
 
+header {
+    text-align: left;
+    position: relative;
+}
+
 header h1 {
     color: mistyrose;
-    text-align: center;
+    display: inline;
+}
+
+header button {
+    background-color: transparent;
+    display: inline;
+    position: absolute;
+    bottom: 0;
+    border: none;
+}
+
+header button img{
+    width: 25px;
+    display: inline;
 }
 
 .character-imgs {
@@ -23,12 +41,12 @@ header h1 {
     flex-grow: 1;
     position: absolute;
     bottom: 0;
+    visibility: hidden;
 }
 
 .sword-character {
     height: 600px;
     left: 0;
-    background-color: whitesmoke;
 }
 
 .shield-character  {
@@ -41,22 +59,26 @@ header h1 {
     grid-template-columns: 1fr 1fr 1fr;
     gap: 0;
     margin: 0 auto;
+    border: 5px solid white;
 }
 
 .game-wrapper img {
     width:  100px;
     height: 100px;
     visibility: hidden;
+    border: 2px solid black;
 }
 
 .bottom-img {
     z-index: 1;
     position: absolute;
+    background-color: white;
 }
 
 .top-img {
     z-index: 2;
     position: absolute;
+    background-color: white;
 }
 
 .box {
@@ -68,6 +90,7 @@ header h1 {
 .game-wrapper {
     height: 300px;
     width: 300px;
+    visibility: hidden;
 }
 
 .unclickable {
@@ -75,7 +98,7 @@ header h1 {
 }
 
 .message {
-    text-align: center;
+    text-align: left;
 }
 
 .info-text-box {
@@ -84,6 +107,41 @@ header h1 {
 
 .reset-new-destination {
     background-color: transparent;
-    color: mistyrose;
-
+    color:aliceblue;
+    font-size: larger;
+    font-weight: bold;
 }
+
+.bg-video {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+  }
+
+  .winner-img img {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    z-index: 5;
+  }
+
+  .winner-msg {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    z-index: 6;
+    color: rosybrown;
+    font-size: 5rem;
+  }
+
+  img .draw-img {
+    width: 500px;
+  }

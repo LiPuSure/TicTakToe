@@ -13,60 +13,73 @@
             <h1>
                 Welccome to Honkai: Star Rail!
             </h1>
+            <button class="background-music-btn">
+                <img src="images/playbutton.png" alt="control-video-sound">
+            </button>
         </header>
+
+        <video autoplay muted loop class="bg-video">
+            <source src="video/hydroaquawater_7225605010422336769-no-watermark.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
         
         <div class="character-imgs">
-            <img class="sword-character" src="images/Character_Clara_Game.webp" alt="Clara">
-            <img class="shield-character" src="images/Character_Kafka_Game.webp" alt="Kafka">
+            <img class="sword-character" src="images/Character_Trailblazer_Game.png" alt="trailblazer">
+            <img class="shield-character" src="images/Character_Kafka_Game.png" alt="Kafka">
         </div>
         
         <div class="message">
-            <h2 class="info-text-box">Pick a side!</h2>
-            <button class="reset-new-destination">Next Destination</button>
+            <h2 class="info-text-box">This is a Tic-Tac-Toe Game!</h2>
+            <button class="reset-new-destination">Start Your Jounery Here!</button>
         </div>
+
+        <div class="winner-img">
+            <img class="sword-win" src="images/trailblazer-male.png" alt="trailblazer-win">
+            <img src="images/Character_Kafka_Splash_Art.webp" alt="Kafka-win" class="shield-win">
+            <img src="images/draw.png" alt="" class="draw-img">
+        </div>
+    
+        <h1 class="winner-msg"></h1>
     </div>
     
         <div class="game-wrapper">
-            <div class="box" data-boxid="1" data-row="1" data-column="1" data-diagonal159="yes">
+            <div class="box" data-boxid="1" data-row="1" data-column="1">
                 <img class="top-img" src="images/sword.png" alt="sword">
                 <img  class="bottom-img" src="images/shield.jpeg" alt="shield">
             </div>
-            <div class="box" data-boxid="2" data-row="1" data-column="2" data-diagonal="">
+            <div class="box" data-boxid="2" data-row="1" data-column="2">
                 <img class="top-img" src="images/sword.png" alt="sword">
                 <img  class="bottom-img" src="images/shield.jpeg" alt="shield">
             </div>
-            <div class="box" data-boxid="3" data-row="1" data-column="3" data-diagonal="yes">
+            <div class="box" data-boxid="3" data-row="1" data-column="3">
                 <img class="top-img" src="images/sword.png" alt="sword">
                 <img  class="bottom-img" src="images/shield.jpeg" alt="shield">
             </div>
-            <div class="box" data-boxid="4" data-row="2" data-column="1" data-diagonal="no">
+            <div class="box" data-boxid="4" data-row="2" data-column="1">
                 <img class="top-img" src="images/sword.png" alt="sword">
                 <img  class="bottom-img" src="images/shield.jpeg" alt="shield">
             </div>
-            <div class="box" data-boxid="5" data-row="2" data-column="2" data-diagonal="yes">
+            <div class="box" data-boxid="5" data-row="2" data-column="2">
                 <img class="top-img" src="images/sword.png" alt="sword">
                 <img  class="bottom-img" src="images/shield.jpeg" alt="shield">
             </div>
-            <div class="box" data-boxid="6" data-row="2" data-column="3" data-diagonal="no">
+            <div class="box" data-boxid="6" data-row="2" data-column="3">
                 <img class="top-img" src="images/sword.png" alt="sword">
                 <img  class="bottom-img" src="images/shield.jpeg" alt="shield">
             </div>
-            <div class="box" data-boxid="7" data-row="3" data-column="1" data-diagonal="yes">
+            <div class="box" data-boxid="7" data-row="3" data-column="1">
                 <img class="top-img" src="images/sword.png" alt="sword">
                 <img  class="bottom-img" src="images/shield.jpeg" alt="shield">
             </div>
-            <div class="box" data-boxid="8" data-row="3" data-column="2" data-diagonal="no">
+            <div class="box" data-boxid="8" data-row="3" data-column="2">
                 <img class="top-img" src="images/sword.png" alt="sword">
                 <img  class="bottom-img" src="images/shield.jpeg" alt="shield">
             </div>
-            <div class="box" data-boxid="9" data-row="3" data-column="3" data-diagonal="yes">
+            <div class="box" data-boxid="9" data-row="3" data-column="3">
                 <img class="top-img" src="images/sword.png" alt="sword">
                 <img  class="bottom-img" src="images/shield.jpeg" alt="shield">
             </div>
-
-
         </div>
-
 
 
     <script src="app.js"></script>
