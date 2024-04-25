@@ -7,6 +7,7 @@ const characterSwordImg = document.querySelector(".sword-character")
 const characterShieldImg = document.querySelector(".shield-character")
 const bgVideo = document.querySelector('.bg-video');
 const winnerImgs = document.querySelectorAll(".winner-img img")
+let gameRoundCount = 0
 
 for (let gameBox of gameBoxesDivs) {
     gameBox.addEventListener("click", gameClickHandler)
@@ -122,9 +123,10 @@ function checkWin() {
     if ((repeatedrowSwordArr.length===2&&repeatedrowSwordArr[0]===repeatedrowSwordArr[1]) || (repeatedcolumnSwordArr.length===2&&repeatedcolumnSwordArr[0]===repeatedcolumnSwordArr[1]) || leftDiagonalSwordCount === 3 || rightDiagonalSwordCount ===3)  {
         console.log("sword win");
         hasSwordWin = true
+        gameRoundCount +=1
         gameDiv.style.visibility = "hidden"
         document.querySelector(".sword-win").style.display = "initial"
-        document.querySelector(".winner-msg").textContent = "Justice Win!!!"
+        document.querySelector(".winner-msg").textContent = `Round ${gameRoundCount}: Justice Win!!!`
         document.querySelector(".winner-msg").style.color = "rosybrown"
         let winSwordAudio = new Audio("video/VO_Archive_Caelus_Max_Level_Reached.ogg")
         winSwordAudio.play()
@@ -133,9 +135,10 @@ function checkWin() {
     if ((repeatedrowShieldArr.length===2&&repeatedrowShieldArr[0]===repeatedrowShieldArr[1]) || (repeatedcolumnShieldArr.length===2&&repeatedcolumnShieldArr[0]===repeatedcolumnShieldArr[1]) || leftDiagonalShieldCount === 3 || rightDiagonalShieldCount ===3) {
         console.log("shield win");
         hasShieldWin = true
+        gameRoundCount +=1
         gameDiv.style.visibility = "hidden"
         document.querySelector(".shield-win").style.display = "initial"
-        document.querySelector(".winner-msg").textContent = "Evil Win!!!"
+        document.querySelector(".winner-msg").textContent = `Round ${gameRoundCount}: Evil Win!!!`
         document.querySelector(".winner-msg").style.color = "purple"
         let winShieldAudio = new Audio("video/VO_Archive_Kafka_3.ogg")
         winShieldAudio.play()
@@ -143,9 +146,10 @@ function checkWin() {
     } 
     if (swordArr.length === 5 && !hasShieldWin && !hasSwordWin) {
         console.log("draw")
+        gameRoundCount +=1
         gameDiv.style.visibility = "hidden"
         document.querySelector(".draw-img").style.display = "initial"
-        document.querySelector(".winner-msg").textContent = "Peace For Now"
+        document.querySelector(".winner-msg").textContent = `Round ${gameRoundCount}: Peace!!!`
         document.querySelector(".winner-msg").style.color = "lightgreen"
         gameDiv.classList.add("unclickable")
     }
