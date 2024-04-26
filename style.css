@@ -3,6 +3,7 @@
 } */
 
 body {
+    background-image: url(images/starraill_login.png);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -12,13 +13,18 @@ body {
 }
 
 header {
-    text-align: left;
     position: relative;
+}
+
+header section{
+    text-align: center;;
+    display: inline;
 }
 
 header h1 {
     color: mistyrose;
-    display: inline;
+    display: block;
+    font-size: 3rem
 }
 
 header button {
@@ -30,16 +36,11 @@ header button {
 }
 
 header button img{
-    width: 25px;
+    width: 40px;
     display: inline;
 }
 
-.character-imgs {
-    display: flex;
-}
-
 .character-imgs img {
-    flex-grow: 1;
     position: absolute;
     bottom: 0;
     visibility: hidden;
@@ -59,8 +60,11 @@ header button img{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 0;
-    margin: 0 auto;
+    margin: 100px auto;
     border: 5px solid white;
+    height: 310px;
+    width: 310px;
+    visibility: hidden;
 }
 
 .game-wrapper img {
@@ -88,18 +92,13 @@ header button img{
     height: 100px;
 }
 
-.game-wrapper {
-    height: 300px;
-    width: 300px;
-    visibility: hidden;
-}
-
 .unclickable {
     pointer-events: none;
 }
 
 .message {
-    text-align: left;
+    text-align: center;
+    margin-right: 30px;
 }
 
 .info-text-box {
@@ -109,20 +108,11 @@ header button img{
 .reset-new-destination {
     background-color: transparent;
     color:aliceblue;
-    font-size: larger;
+    font-size: 2rem;
     font-weight: bold;
+    position: relative;
+    z-index: 999;
 }
-
-.bg-video {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -1;
-  }
 
   .winner-img img {
     display: none;
@@ -136,13 +126,16 @@ header button img{
 
   .winner-msg {
     position: absolute;
-    top: 0;
-    right: 20px;
+    top: 10%;
+    left: 30px;
     z-index: 6;
-    color: rosybrown;
-    font-size: 5rem;
+    font-size: 3rem;
   }
 
   img .draw-img {
     width: 500px;
   }
+
+.page-wrapper {
+    margin-top: 15px;
+}

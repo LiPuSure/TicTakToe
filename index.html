@@ -10,19 +10,22 @@
 <body>
     <div class="page-wrapper">
         <header>
-            <h1>
-                Welccome to Honkai: Star Rail!
-            </h1>
+            <div class="audio-div">
+                <audio class="loginin" src="video/hydroaquawater_7225605010422336769-no-watermark.mp4"></audio>
+                <audio class="herta hideControls" src="video/herta.mp4"></audio>
+                <audio class="jarilo hideControls" src="video/jarilo.mp4"></audio>
+                <audio class="luofu hideControls" src="video/luofu-bg.mp4"></audio>
+            </div>
+            <section>
+                <h1>
+                    Welccome to Honkai: Star Rail!
+                </h1>
+            </section>    
             <button class="background-music-btn">
                 <img src="images/playbutton.png" alt="control-video-sound">
             </button>
         </header>
 
-        <video autoplay muted loop class="bg-video">
-            <source src="video/hydroaquawater_7225605010422336769-no-watermark.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        
         <div class="character-imgs">
             <img class="sword-character" src="images/Character_Trailblazer_Game.png" alt="trailblazer">
             <img class="shield-character" src="images/Character_Kafka_Game.png" alt="Kafka">
@@ -40,8 +43,7 @@
         </div>
     
         <h1 class="winner-msg"></h1>
-    </div>
-    
+        
         <div class="game-wrapper">
             <div class="box" data-boxid="1" data-row="1" data-column="1">
                 <img class="top-img" src="images/sword.png" alt="sword">
@@ -80,8 +82,8 @@
                 <img  class="bottom-img" src="images/shield.jpeg" alt="shield">
             </div>
         </div>
-
-
+    </div>
+    
     <script src="app.js"></script>
 </body>
 </html>

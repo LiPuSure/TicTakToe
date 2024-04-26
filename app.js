@@ -5,19 +5,24 @@ const btnNewDestination = document.querySelector(".reset-new-destination")
 const gameDiv = document.querySelector('.game-wrapper')
 const characterSwordImg = document.querySelector(".sword-character")
 const characterShieldImg = document.querySelector(".shield-character")
-const bgVideo = document.querySelector('.bg-video');
 const winnerImgs = document.querySelectorAll(".winner-img img")
+const musicBtn = document.querySelector(".background-music-btn")
+const music = document.querySelectorAll("audio")
 let gameRoundCount = 0
+let clickId = 0
+let swordArr = []
+let shieldArr = []
+let destinationCount = -1
+let currentStop = "loginin"
+let destinationObject = {herta: 'images/herta.png', jarilo: 'images/Jarilo-VI.png', luofu: 'images/luofu.png'}
+let destinationArr = Object.keys(destinationObject)
+
 
 for (let gameBox of gameBoxesDivs) {
     gameBox.addEventListener("click", gameClickHandler)
 }
 btnNewDestination.addEventListener("click", btnClickHander)
-
-let clickId = 0
-let swordArr = []
-let shieldArr = []
-let destinationCount = -1
+musicBtn.addEventListener("click", playMusic)
 
 function gameClickHandler(event) {
     clickId ++
@@ -59,7 +64,9 @@ function btnClickHander(event) {
    characterSwordImg.style.visibility = "visible"
    btnNewDestination.textContent = "Next Destination🚀"
    document.querySelector(".winner-msg").textContent = ""
+   stopMusic()
    changeDestination()
+   playMusic()
 }
 
 function checkWin() {
@@ -127,10 +134,11 @@ function checkWin() {
         gameDiv.style.visibility = "hidden"
         document.querySelector(".sword-win").style.display = "initial"
         document.querySelector(".winner-msg").textContent = `Round ${gameRoundCount}: Justice Win!!!`
-        document.querySelector(".winner-msg").style.color = "rosybrown"
+        document.querySelector(".winner-msg").style.color = "lightblue"
         let winSwordAudio = new Audio("video/VO_Archive_Caelus_Max_Level_Reached.ogg")
         winSwordAudio.play()
         gameDiv.classList.add("unclickable")
+        document.querySelector(".message").style.textAlign = "right"
     } 
     if ((repeatedrowShieldArr.length===2&&repeatedrowShieldArr[0]===repeatedrowShieldArr[1]) || (repeatedcolumnShieldArr.length===2&&repeatedcolumnShieldArr[0]===repeatedcolumnShieldArr[1]) || leftDiagonalShieldCount === 3 || rightDiagonalShieldCount ===3) {
         console.log("shield win");
@@ -143,6 +151,7 @@ function checkWin() {
         let winShieldAudio = new Audio("video/VO_Archive_Kafka_3.ogg")
         winShieldAudio.play()
         gameDiv.classList.add("unclickable")
+        document.querySelector(".message").style.textAlign = "right"
     } 
     if (swordArr.length === 5 && !hasShieldWin && !hasSwordWin) {
         console.log("draw")
@@ -150,30 +159,44 @@ function checkWin() {
         gameDiv.style.visibility = "hidden"
         document.querySelector(".draw-img").style.display = "initial"
         document.querySelector(".winner-msg").textContent = `Round ${gameRoundCount}: Peace!!!`
-        document.querySelector(".winner-msg").style.color = "lightgreen"
+        document.querySelector(".winner-msg").style.color = "red"
         gameDiv.classList.add("unclickable")
+        document.querySelector(".message").style.textAlign = "right"
     }
 
 }
-const musicBtn = document.querySelector(".background-music-btn")
-musicBtn.addEventListener("click", playVideo)
-function playVideo() {
-    if (bgVideo.muted === true) {
-        bgVideo.muted = false;
-    } else {
-        bgVideo.muted = true      
-    }
-  }
-
 function changeDestination() {
-    bgVideo.style.visibility = "hidden"
-    let destinationObject = {herta: 'images/herta.png', jarilo: 'images/Jarilo-VI.png', Luofu: 'images/luofu.png'}
-    let destinationArr = Object.keys(destinationObject)
-    if (destinationCount < 2) {
-        destinationCount ++
-        document.querySelector('body').style.backgroundImage = `url(${destinationObject[destinationArr[destinationCount]]})`
-    } else {
+    if (destinationCount === 2) {
         destinationCount = -1
     }
+    destinationCount ++
+    currentStop = destinationArr[destinationCount]
+    document.querySelector('body').style.backgroundImage = `url(${destinationObject[currentStop]})`
+    if (currentStop === "herta") {
+        document.querySelector("section h1").style.color = "black"
+        document.querySelector(".info-text-box").style.color = "black"
+        btnNewDestination.style.backgroundColor = "grey"
+    } else {
+        document.querySelector("section h1").style.color = "mistyrose"
+        document.querySelector(".info-text-box").style.color = "mistyrose"
+        btnNewDestination.style.backgroundColor = "transparent"
+    }
+}
 
+function playMusic(){
+    let allStops = destinationArr.slice()
+    allStops.unshift("loginin")
+    currentMusic = music[allStops.indexOf(currentStop)]
+    console.log(currentStop);
+    if (currentMusic.paused) {
+        currentMusic.play()
+    } else {
+        currentMusic.pause()
+    }
+}
+
+function stopMusic() {
+    for (let elem of music) {
+        elem.pause()
+    }
 }
