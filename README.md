@@ -31,3 +31,4 @@ All the images and audio are sourced from offcial game.
 - With change of the map, the characters on the left and right would change accordingly, along with the winning image.
 - Add an arrow above the two charcters to indicate the current player's turn.
 - Substitute the first login page to be an animation in which the stars move.
+- Add bot players
