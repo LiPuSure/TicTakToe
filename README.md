@@ -9,7 +9,7 @@ This is a "Honkai: Star Rail" version of tic-tac-toe, featuring first three maps
 ![screenshot 2](screenshots/Screenshot_2.png)
 
 # Offical Game Web Of Honkai: Star Rail
-[https://hsr.hoyoverse.com/en-us/]
+[https://hsr.hoyoverse.com/en-us/] (#)
 All the images and audio are sourced from offcial game.
 
 ## Planning & Problem Solving
